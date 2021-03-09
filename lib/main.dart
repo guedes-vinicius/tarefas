@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
           });
         },
       ),
-      onDismissed: (direction){
+      onDismissed: (direction) {
         setState(() {
           _lastRemoved = Map.from(_toDolist[index]);
           _lastRemovedPos = index;
@@ -118,16 +118,18 @@ class _HomeState extends State<Home> {
 
           _saveData();
           final snack = SnackBar(
-              content: Text("Tarefa \"${_lastRemoved["title"]}\" removida!"),
-          action: SnackBarAction(label: "Desfazer",
-            onPressed:(){
-            setState(() {
-              _toDolist.insert(_lastRemovedPos,_lastRemoved);
-              _saveData();
-            });
-
-            } ,),
-          duration: Duration(seconds: 2),);
+            content: Text("Tarefa \"${_lastRemoved["title"]}\" removida!"),
+            action: SnackBarAction(
+              label: "Desfazer",
+              onPressed: () {
+                setState(() {
+                  _toDolist.insert(_lastRemovedPos, _lastRemoved);
+                  _saveData();
+                });
+              },
+            ),
+            duration: Duration(seconds: 2),
+          );
           Scaffold.of(context).showSnackBar(snack);
         });
       },
