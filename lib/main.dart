@@ -41,10 +41,10 @@ class _HomeState extends State<Home> {
     });
   }
 
-  Future<Null> _refresh() async{
+  Future<Null> _refresh() async {
     await Future.delayed(Duration(seconds: 1));
     setState(() {
-      _toDolist.sort((a, b){
+      _toDolist.sort((a, b) {
         if (a['ok'] && !b['ok'])
           return 1;
         else if (!a['ok'] && b['ok'])
@@ -72,15 +72,12 @@ class _HomeState extends State<Home> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: RefreshIndicator(onRefresh: _refresh,
                   child: TextField(
                     controller: _ToDoController,
                     decoration: InputDecoration(
                         labelText: "Nova Tarefa",
                         labelStyle: TextStyle(color: Colors.blueAccent)),
                   ),
-                      ),
-
                 ),
                 RaisedButton(
                   color: Colors.blueAccent,
@@ -91,11 +88,11 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Expanded(
+          Expanded(child: RefreshIndicator(onRefresh: _refresh,
             child: ListView.builder(
                 padding: EdgeInsets.only(top: 10.0),
                 itemCount: _toDolist.length,
-                itemBuilder: buildItem),
+                itemBuilder: buildItem),)
           )
         ],
       ),
