@@ -36,6 +36,7 @@ class _HomeState extends State<Home> {
       newToDo["title"] = _ToDoController.text;
       _ToDoController.text = "";
       newToDo["ok"] = false;
+      //newToDo["warning"] = false;
       _toDolist.add(newToDo);
       _saveData();
     });
@@ -146,8 +147,8 @@ class _HomeState extends State<Home> {
             ),
             duration: Duration(seconds: 2),
           );
-          Scaffold.of(context).removeCurrentSnackBar();
-          Scaffold.of(context).showSnackBar(snack);
+          ScaffoldMessenger.of(context).removeCurrentSnackBar();
+          ScaffoldMessenger.of(context).showSnackBar(snack);
         });
       },
     );
