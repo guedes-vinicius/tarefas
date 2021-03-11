@@ -36,7 +36,6 @@ class _HomeState extends State<Home> {
       newToDo["title"] = _ToDoController.text;
       _ToDoController.text = "";
       newToDo["ok"] = false;
-      //newToDo["warning"] = false;
       _toDolist.add(newToDo);
       _saveData();
     });
@@ -80,6 +79,7 @@ class _HomeState extends State<Home> {
                         labelStyle: TextStyle(color: Colors.blueAccent)),
                   ),
                 ),
+                // ignore: deprecated_member_use
                 RaisedButton(
                   color: Colors.blueAccent,
                   child: Text("ADD"),
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
         ),
       ),
       direction: DismissDirection.startToEnd,
-      child: CheckboxListTile(
+      child:CheckboxListTile(
         title: Text(_toDolist[index]["title"]),
         value: _toDolist[index]["ok"],
         secondary: CircleAvatar(
