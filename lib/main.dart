@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Lista de Tarefas"),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xFF7D79D0),
         centerTitle: true,
       ),
       body: Column(
@@ -76,12 +76,12 @@ class _HomeState extends State<Home> {
                     controller: _ToDoController,
                     decoration: InputDecoration(
                         labelText: "Nova Tarefa",
-                        labelStyle: TextStyle(color: Colors.blueAccent)),
+                        labelStyle: TextStyle(color: Color(0xFF7D79D0))),
                   ),
                 ),
                 // ignore: deprecated_member_use
                 RaisedButton(
-                  color: Colors.blueAccent,
+                  color: Color(0xFF7D79D0),
                   child: Text("ADD"),
                   textColor: Colors.white,
                   onPressed: _addToDo,
@@ -117,8 +117,11 @@ class _HomeState extends State<Home> {
       child:CheckboxListTile(
         title: Text(_toDolist[index]["title"]),
         value: _toDolist[index]["ok"],
+        activeColor: Color(0xFF7D79D0),
         secondary: CircleAvatar(
           child: Icon(_toDolist[index]["ok"] ? Icons.check : Icons.error),
+          foregroundColor: Colors.white,
+          backgroundColor: Color(0xFF7D79D0),
         ),
         onChanged: (c) {
           setState(() {
