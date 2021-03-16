@@ -89,12 +89,14 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Expanded(child: RefreshIndicator(onRefresh: _refresh,
+          Expanded(
+              child: RefreshIndicator(
+            onRefresh: _refresh,
             child: ListView.builder(
                 padding: EdgeInsets.only(top: 10.0),
                 itemCount: _toDolist.length,
-                itemBuilder: buildItem),)
-          )
+                itemBuilder: buildItem),
+          ))
         ],
       ),
     );
@@ -114,7 +116,7 @@ class _HomeState extends State<Home> {
         ),
       ),
       direction: DismissDirection.startToEnd,
-      child:CheckboxListTile(
+      child: CheckboxListTile(
         title: Text(_toDolist[index]["title"]),
         value: _toDolist[index]["ok"],
         activeColor: Color(0xFF7D79D0),
